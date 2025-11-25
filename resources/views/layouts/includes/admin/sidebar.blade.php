@@ -3,7 +3,7 @@
 $links = [
     [
         'name' => 'Dashboard',
-        'icon' => 'fa-solid fa-gauge',
+        'icon' => 'fa-solid fa-school',
         'href' => route('admin.dashboard'),
         'active' => request()->routeIs('admin.dashboard'),
     ],
@@ -12,7 +12,7 @@ $links = [
     ],
     [
         'name' => 'Profesores',
-        'icon' => 'fa-solid fa-user-shield',
+        'icon' => 'fa-solid fa-chalkboard-user',
         'href' => route('admin.roles.index'),
         'active' => request()->routeIs('admin.roles.*'),
     ],
@@ -20,7 +20,7 @@ $links = [
         'name' => 'Directivos',
         'icon' => 'fa-solid fa-user-shield',
         'href' => route('admin.directivos.index'),
-        'active' => request()->routeIs('admin.roles.*'),
+        'active' => request()->routeIs('admin.directivos.*'),
     ],
     [
         'header'=> 'Gestión de Alumnos',

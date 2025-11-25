@@ -5,7 +5,7 @@
         'href' => route('admin.dashboard'),
     ],
     [
-        'name' => 'Profesores',
+        'name' => 'Directivos',
     ]
 ]">
     <x-slot name="action">
