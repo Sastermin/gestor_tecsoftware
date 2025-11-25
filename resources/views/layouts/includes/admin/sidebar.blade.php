@@ -11,16 +11,22 @@ $links = [
         'header'=> 'Gestión de Profesores',
     ],
     [
-        'name' => 'Roles y permisos',
+        'name' => 'Profesores',
         'icon' => 'fa-solid fa-user-shield',
         'href' => route('admin.roles.index'),
+        'active' => request()->routeIs('admin.roles.*'),
+    ],
+    [
+        'name' => 'Directivos',
+        'icon' => 'fa-solid fa-user-shield',
+        'href' => route('admin.directivos.index'),
         'active' => request()->routeIs('admin.roles.*'),
     ],
     [
         'header'=> 'Gestión de Alumnos',
     ],
     [
-        'name' => 'Usuarios',
+        'name' => 'Alumnos',
         'icon' => 'fa-solid fa-users',
         'href' => route('admin.users.index'),
         'active' => request()->routeIs('admin.users.*'),
