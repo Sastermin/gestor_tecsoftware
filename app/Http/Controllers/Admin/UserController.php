@@ -32,23 +32,29 @@ class UserController extends Controller
     {
         // Validar los datos
         $request->validate([
-            'name'     => 'required|string|max:255',
-            'email'    => 'required|email|unique:users,email',
-            'password' => 'required|min:6',
+            'name'         => 'required|string|max:255',
+            'email'        => 'required|email|unique:users,email',
+            'password'     => 'required|min:6',
+            'edad'         => 'nullable|integer|min:1|max:100',
+            'calificacion' => 'nullable|numeric|min:0|max:100',
+            'materia'      => 'nullable|string|max:255',
         ]);
 
         // Crear el usuario
         User::create([
-            'name'     => $request->name,
-            'email'    => $request->email,
-            'password' => bcrypt($request->password),
+            'name'         => $request->name,
+            'email'        => $request->email,
+            'password'     => bcrypt($request->password),
+            'edad'         => $request->edad,
+            'calificacion' => $request->calificacion,
+            'materia'      => $request->materia,
         ]);
 
         // Alerta de éxito
         session()->flash('swal', [
             'icon'  => 'success',
-            'title' => 'Usuario creado correctamente',
-            'text'  => 'El usuario ha sido registrado exitosamente'
+            'title' => 'Alumno creado correctamente',
+            'text'  => 'El alumno ha sido registrado exitosamente'
         ]);
 
         return redirect()->route('admin.users.index');
@@ -68,26 +74,19 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $request->validate([
-            'name'  => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email,' . $user->id,
+            'name'         => 'required|string|max:255',
+            'email'        => 'required|email|unique:users,email,' . $user->id,
+            'edad'         => 'nullable|integer|min:1|max:100',
+            'calificacion' => 'nullable|numeric|min:0|max:100',
+            'materia'      => 'nullable|string|max:255',
         ]);
 
-        // Si no hubo cambios
-        if ($user->name === $request->name && $user->email === $request->email) {
-            session()->flash('swal', [
-                'icon'  => 'info',
-                'title' => 'Sin cambios',
-                'text'  => 'No se detectaron modificaciones'
-            ]);
-            return redirect()->route('admin.users.edit', $user);
-        }
-
-        $user->update($request->only('name', 'email'));
+        $user->update($request->only('name', 'email', 'edad', 'calificacion', 'materia'));
 
         session()->flash('swal', [
             'icon'  => 'success',
-            'title' => 'Usuario actualizado correctamente',
-            'text'  => 'Los datos del usuario fueron actualizados exitosamente'
+            'title' => 'Alumno actualizado correctamente',
+            'text'  => 'Los datos del alumno fueron actualizados exitosamente'
         ]);
 
         return redirect()->route('admin.users.index');
@@ -112,8 +111,8 @@ class UserController extends Controller
 
         session()->flash('swal', [
             'icon'  => 'success',
-            'title' => 'Usuario eliminado correctamente',
-            'text'  => 'El usuario ha sido eliminado exitosamente'
+            'title' => 'Alumno eliminado correctamente',
+            'text'  => 'El alumno ha sido eliminado exitosamente'
         ]);
 
         return redirect()->route('admin.users.index');

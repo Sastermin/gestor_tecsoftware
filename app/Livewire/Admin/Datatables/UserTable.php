@@ -28,17 +28,18 @@ class UserTable extends DataTableComponent
             Column::make("Id", "id")
                 ->sortable(),
             Column::make("Nombre", "name")
+                ->sortable()
+                ->searchable(),
+            Column::make("Edad", "edad")
                 ->sortable(),
-            Column::make("Email", "email")
-                ->sortable(),
-            Column::make("Número de id", "id_number")
-                ->sortable(),
-            Column::make("Teléfono", "phone")
-                ->sortable(),
-            Column::make("Rol", "roles")
-                ->label(function($row) {
-                    return $row->roles->first()?->name ?? 'Sin Rol';
+            Column::make("Calificación", "calificacion")
+                ->sortable()
+                ->format(function($value) {
+                    return $value ? number_format($value, 2) : 'N/A';
                 }),
+            Column::make("Materia", "materia")
+                ->sortable()
+                ->searchable(),
             Column::make("Acciones")
                 ->label(function ($row) {
                     return view('admin.users.actions',
