@@ -18,7 +18,7 @@ $links = [
     ],
     [
         'name' => 'Materias',
-        'icon' => 'fa-solid fa-user-shield',
+        'icon' => 'fa-solid fa-book-open',
         'href' => route('admin.directivos.index'),
         'active' => request()->routeIs('admin.directivos.*'),
     ],

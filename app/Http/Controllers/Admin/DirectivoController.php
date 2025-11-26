@@ -4,21 +4,21 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\Directivo;
 
 class DirectivoController extends Controller
 {
     /**
-     * Mostrar la lista de usuarios
+     * Mostrar la lista de materias
      */
     public function index()
     {
-        $directivos = User::all();
+        $directivos = Directivo::all();
         return view('admin.directivos.index', compact('directivos'));
     }
 
     /**
-     * Mostrar el formulario para crear un nuevo usuario
+     * Mostrar el formulario para crear una nueva materia
      */
     public function create()
     {
@@ -26,54 +26,52 @@ class DirectivoController extends Controller
     }
 
     /**
-     * Guardar un nuevo usuario en la base de datos
+     * Guardar una nueva materia en la base de datos
      */
     public function store(Request $request)
     {
         // Validar los datos
         $request->validate([
-            'name'     => 'required|string|max:255',
-            'email'    => 'required|email|unique:users,email',
-            'password' => 'required|min:6',
+            'nombre_materia' => 'required|string|max:255',
+            'total_alumnos'  => 'required|integer|min:0',
         ]);
 
-        // Crear el usuario
-        User::create([
-            'name'     => $request->name,
-            'email'    => $request->email,
-            'password' => bcrypt($request->password),
+        // Crear la materia
+        Directivo::create([
+            'nombre_materia' => $request->nombre_materia,
+            'total_alumnos'  => $request->total_alumnos,
         ]);
 
         // Alerta de éxito
         session()->flash('swal', [
             'icon'  => 'success',
-            'title' => 'Usuario creado correctamente',
-            'text'  => 'El usuario ha sido registrado exitosamente'
+            'title' => 'Materia creada correctamente',
+            'text'  => 'La materia ha sido registrada exitosamente'
         ]);
 
         return redirect()->route('admin.directivos.index');
     }
 
     /**
-     * Mostrar el formulario para editar un usuario
+     * Mostrar el formulario para editar una materia
      */
-    public function edit(User $directivo)
+    public function edit(Directivo $directivo)
     {
         return view('admin.directivos.edit', compact('directivo'));
     }
 
     /**
-     * Actualizar los datos del usuario
+     * Actualizar los datos de la materia
      */
-    public function update(Request $request, User $directivo)
+    public function update(Request $request, Directivo $directivo)
     {
         $request->validate([
-            'name'  => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email,' . $directivo->id,
+            'nombre_materia' => 'required|string|max:255',
+            'total_alumnos'  => 'required|integer|min:0',
         ]);
 
         // Si no hubo cambios
-        if ($directivo->name === $request->name && $directivo->email === $request->email) {
+        if ($directivo->nombre_materia === $request->nombre_materia && $directivo->total_alumnos == $request->total_alumnos) {
             session()->flash('swal', [
                 'icon'  => 'info',
                 'title' => 'Sin cambios',
@@ -82,38 +80,28 @@ class DirectivoController extends Controller
             return redirect()->route('admin.directivos.edit', $directivo);
         }
 
-        $directivo->update($request->only('name', 'email'));
+        $directivo->update($request->only('nombre_materia', 'total_alumnos'));
 
         session()->flash('swal', [
             'icon'  => 'success',
-            'title' => 'Usuario actualizado correctamente',
-            'text'  => 'Los datos del usuario fueron actualizados exitosamente'
+            'title' => 'Materia actualizada correctamente',
+            'text'  => 'Los datos de la materia fueron actualizados exitosamente'
         ]);
 
         return redirect()->route('admin.directivos.index');
     }
 
     /**
-     * Eliminar un usuario
+     * Eliminar una materia
      */
-    public function destroy(User $directivo)
+    public function destroy(Directivo $directivo)
     {
-        // Evitar que un administrador se borre a sí mismo
-        if (auth()->id() === $directivo->id) {
-            session()->flash('swal', [
-                'icon'  => 'error',
-                'title' => 'Acción no permitida',
-                'text'  => 'No puedes eliminar tu propio usuario.'
-            ]);
-            return redirect()->route('admin.directivos.index');
-        }
-
         $directivo->delete();
 
         session()->flash('swal', [
             'icon'  => 'success',
-            'title' => 'Usuario eliminado correctamente',
-            'text'  => 'El usuario ha sido eliminado exitosamente'
+            'title' => 'Materia eliminada correctamente',
+            'text'  => 'La materia ha sido eliminada exitosamente'
         ]);
 
         return redirect()->route('admin.directivos.index');

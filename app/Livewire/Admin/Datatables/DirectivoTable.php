@@ -34,7 +34,7 @@ class DirectivoTable extends DataTableComponent
 
             Column::make("Acciones")
                 ->label(fn($row) => view('admin.directivos.actions', [
-                    'role' => $row,
+                    'directivo' => $row,
                 ])),
         ];
     }

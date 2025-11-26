@@ -1,4 +1,4 @@
-<x-admin-layout title="Roles | TecDSoftware"
+<x-admin-layout title="Materias | TecSoftware"
 :breadcrumbs="[
     [
         'name' => 'Dashboard',
@@ -6,7 +6,7 @@
     ],
     [
         'name' => 'Materias',
-        'href' => route('admin.roles.index'),
+        'href' => route('admin.directivos.index'),
     ],
     [
         'name' => 'Editar',
@@ -14,13 +14,17 @@
 ]">
 
     <x-wire-card>
-        <form action="{{route('admin.roles.update', $role)}}" method="POST">
+        <form action="{{route('admin.directivos.update', $directivo)}}" method="POST">
             @csrf
 
             @method('PUT')
 
-            <x-wire-input label="Nombre" name="name" placeholder="Nombre del rol" value="{{old('name', $role->name)}}">
+            <x-wire-input label="Nombre de la materia" name="nombre_materia" placeholder="Ej: Matemáticas" value="{{old('nombre_materia', $directivo->nombre_materia)}}">
             </x-wire-input>
+
+            <x-wire-input label="Total de alumnos" name="total_alumnos" type="number" min="0" placeholder="0" value="{{old('total_alumnos', $directivo->total_alumnos)}}">
+            </x-wire-input>
+
             <div class="flex justify-end mt-4">
                 <x-wire-button type="submit" blue>Actualizar</x-wire-button>
             </div>

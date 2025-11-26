@@ -14,10 +14,10 @@ class RoleSeeder extends Seeder
     {
         //Definir roles
         $roles = [
-            'Paciente',
-            'Doctor',
-            'Recepcionista',
-            'Administrador'
+            'Julieta Venegas',
+            'Ricardo Arjona',
+            'Shakira',
+            'Profe Julio',
         ];
         //Crear roles
         foreach ($roles as $role) {
