@@ -10,7 +10,7 @@
 ]">
     <x-slot name="action">
         <x-wire-button blue href="{{ route('admin.directivos.create') }}">
-            <i class="fa-solid fa-plus"></i> Nueva Materia2
+            <i class="fa-solid fa-plus"></i> Nueva Materia
         </x-wire-button>
     </x-slot>
 

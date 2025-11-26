@@ -19,8 +19,6 @@ class UserSeeder extends Seeder
             'email' => 'usuario@gmail.com',
             'password' => bcrypt('12345678'),
             'id_number' => '123456789',
-            'phone' => '5555555555',
-            'address' => 'Calle Falsa 123',
             'edad' => 20,
             'calificacion' => 8.5,
             'materia' => 'Matemáticas',
