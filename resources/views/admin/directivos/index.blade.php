@@ -14,6 +14,6 @@
         </x-wire-button>
     </x-slot>
 
-
+@livewire('admin.datatables.directivo-table')
 
 </x-admin-layout>

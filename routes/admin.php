@@ -15,5 +15,5 @@ Route::resource('roles', RoleController::class);
 //Gestión de Usuarios
 Route::resource('users', UserController::class);
 
-//Gestión de Usuarios
+//Gestión de Directivos
 Route::resource('directivos', DirectivoController::class);

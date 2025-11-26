@@ -8,7 +8,7 @@ $links = [
         'active' => request()->routeIs('admin.dashboard'),
     ],
     [
-        'header'=> 'Gestión de Profesores',
+        'header'=> 'Gestión de Superiores',
     ],
     [
         'name' => 'Profesores',
