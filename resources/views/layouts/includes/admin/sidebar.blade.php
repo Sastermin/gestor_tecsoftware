@@ -17,7 +17,7 @@ $links = [
         'active' => request()->routeIs('admin.roles.*'),
     ],
     [
-        'name' => 'Directivos',
+        'name' => 'Materias',
         'icon' => 'fa-solid fa-user-shield',
         'href' => route('admin.directivos.index'),
         'active' => request()->routeIs('admin.directivos.*'),
@@ -27,7 +27,7 @@ $links = [
     ],
     [
         'name' => 'Alumnos',
-        'icon' => 'fa-solid fa-users',
+        'icon' => 'fa-solid fa-user-graduate',
         'href' => route('admin.users.index'),
         'active' => request()->routeIs('admin.users.*'),
     ],

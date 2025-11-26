@@ -21,13 +21,16 @@ class DirectivoTable extends DataTableComponent
             Column::make("Id", "id")
                 ->sortable(),
 
-            Column::make("Nombre", "name")
+            Column::make("Nombre de materia", "nombre_materia")
                 ->sortable()
                 ->searchable(),
 
             Column::make("Fecha", "updated_at")
                 ->sortable()
                 ->format(fn($value) => $value?->format('d/m/Y')),
+
+            Column::make("Total de alumnos", "total_alumnos")
+                ->sortable(),
 
             Column::make("Acciones")
                 ->label(fn($row) => view('admin.directivos.actions', [

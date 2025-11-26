@@ -5,7 +5,7 @@
         'href' => route('admin.dashboard'),
     ],
     [
-        'name' => 'Profesores',
+        'name' => 'Materias',
         'href' => route('admin.roles.index'),
     ],
     [

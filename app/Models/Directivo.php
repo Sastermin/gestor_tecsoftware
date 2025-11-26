@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Directivo extends Model
 {
-    protected $fillable = ['name'];
+    protected $fillable = ['nombre_materia', 'total_alumnos'];
 }

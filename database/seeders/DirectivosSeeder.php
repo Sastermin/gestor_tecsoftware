@@ -14,10 +14,10 @@ class DirectivosSeeder extends Seeder
     public function run(): void
     {
         $directivos = [
-            ['name' => 'Director General'],
-            ['name' => 'Subdirector Académico'],
-            ['name' => 'Coordinador de Área'],
-            ['name' => 'Jefe de Estudios'],
+            ['nombre_materia' => 'Matemáticas', 'total_alumnos' => 30],
+            ['nombre_materia' => 'Física', 'total_alumnos' => 25],
+            ['nombre_materia' => 'Química', 'total_alumnos' => 28],
+            ['nombre_materia' => 'Historia', 'total_alumnos' => 32],
         ];
 
         foreach ($directivos as $directivo) {
