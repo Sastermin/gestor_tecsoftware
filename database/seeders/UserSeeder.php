@@ -21,6 +21,9 @@ class UserSeeder extends Seeder
             'id_number' => '123456789',
             'phone' => '5555555555',
             'address' => 'Calle Falsa 123',
-        ]) ->assignRole('Doctor');
+            'edad' => 20,
+            'calificacion' => 8.5,
+            'materia' => 'Matemáticas',
+        ]) ->assignRole('Julieta Venegas');
     }
 }

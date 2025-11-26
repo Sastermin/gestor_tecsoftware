@@ -20,7 +20,7 @@
             <div class="bg-gradient-to-br from-gray-700 to-gray-900 rounded-xl shadow-lg p-6 hover:scale-105 duration-300">
                 <div class="flex justify-between items-center">
                     <div>
-                        <p class="text-gray-300 text-sm">Total Usuarios</p>
+                        <p class="text-gray-300 text-sm">Total Alumnos</p>
                         <p class="text-3xl font-bold mt-2">1,248</p>
                     </div>
                     <div class="bg-white/10 p-4 rounded-full">
@@ -35,11 +35,11 @@
             <div class="bg-gradient-to-br from-gray-700 to-black rounded-xl shadow-lg p-6 hover:scale-105 duration-300">
                 <div class="flex justify-between items-center">
                     <div>
-                        <p class="text-gray-300 text-sm">Total Roles</p>
+                        <p class="text-gray-300 text-sm">Total Profesores</p>
                         <p class="text-3xl font-bold mt-2">12</p>
                     </div>
                     <div class="bg-white/10 p-4 rounded-full">
-                        <i class="fas fa-shield-alt text-3xl"></i>
+                        <i class="fas fa-solid fa-chalkboard-user text-3xl"></i>
                     </div>
                 </div>
                 <span class="text-sm text-gray-300 mt-4 flex items-center">
@@ -117,12 +117,12 @@
 
                     <button class="bg-gray-700 hover:bg-gray-600 text-white p-4 rounded-lg transition">
                         <i class="fas fa-users text-lg"></i>
-                        <p class="mt-2 font-medium">Gestionar Usuarios</p>
+                        <p class="mt-2 font-medium">Gestionar Alumnos</p>
                     </button>
 
                     <button class="bg-gray-700 hover:bg-gray-600 text-white p-4 rounded-lg transition">
                         <i class="fas fa-shield-alt text-lg"></i>
-                        <p class="mt-2 font-medium">Gestionar Roles</p>
+                        <p class="mt-2 font-medium">Gestionar Profes</p>
                     </button>
 
                 </div>
@@ -139,7 +139,7 @@
                     </div>
                     <div>
                         <h3 class="text-xl font-bold">Sistema de Gestión TecSoftware</h3>
-                        <p class="text-gray-300 mt-1">Gestión de usuarios, roles y permisos</p>
+                        <p class="text-gray-300 mt-1">Gestión de profesores, alumnos y materias</p>
                     </div>
                 </div>
 
