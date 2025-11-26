@@ -1,4 +1,4 @@
-<x-admin-layout title="Roles | TecSoftware"
+<x-admin-layout title="Materias | TecSoftware"
 :breadcrumbs="[
     [
         'name' => 'Dashboard',
