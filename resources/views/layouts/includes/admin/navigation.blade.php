@@ -15,15 +15,15 @@
                 </a>
 
                 <div class="hidden md:flex items-center gap-6 ml-20">
-                    <span class="flex items-center gap-1 text-gray-600 dark:text-gray-300 text-sm cursor-pointer hover:font-semibold transition">
+                    <a href="{{ route('admin.users.index') }}" class="flex items-center gap-1 text-gray-600 dark:text-gray-300 text-sm cursor-pointer hover:font-semibold transition">
                         <i class="fa-solid fa-user-graduate"></i> Alumnos
-                    </span>
-                    <span class="flex items-center gap-1 text-gray-600 dark:text-gray-300 text-sm cursor-pointer hover:font-semibold transition">
+                    </a>
+                    <a href="{{ route('admin.directivos.index') }}" class="flex items-center gap-1 text-gray-600 dark:text-gray-300 text-sm cursor-pointer hover:font-semibold transition">
                         <i class="fa-solid fa-book-open"></i> Materias
-                    </span>
-                    <span class="flex items-center gap-1 text-gray-600 dark:text-gray-300 text-sm cursor-pointer hover:font-semibold transition">
+                    </a>
+                    <a href="{{ route('admin.roles.index') }}" class="flex items-center gap-1 text-gray-600 dark:text-gray-300 text-sm cursor-pointer hover:font-semibold transition">
                         <i class="fa-solid fa-chalkboard-teacher"></i> Profesores
-                    </span>
+                    </a>
                 </div>
                    
                 </a>
